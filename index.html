@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator</title>
+    <style>
+        * {
+          font-size: 18px;
+          font-family: 'Roboto Mono',monospace;
+        }
+
+        body {
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .secret {
+          margin-bottom: 60px;
+        }
+
+        .secret input {
+          border: 1px solid #cd70a7;
+          color: #663852;
+        }
+
+        .secret button {
+          padding: 11px;
+          border: none;
+          color: white;
+          background: #d48eb4;
+          border-radius: 6px;
+        }
+
+        .generator {
+          display: flex;
+          flex-direction: column;
+          padding: 5px 5px 5px 0;
+        }
+
+        .input {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        input {
+          padding: 10px;
+          max-width: 100px;
+        }
+
+        .generate {
+          margin-top: 20px;
+          padding: 10px;
+        }
+
+        .result {
+          margin-top: 32px;
+          font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+    <div class="secret" id="secret-block">
+        <input type="number" id="secret-number">
+        <button id="save-secret">Save</button>
+    </div>
+    <div class="generator">
+        <div class="input">
+            <input type="number" min="0" value="1" maxlength="3">
+            <input type="number" value="10" maxlength="3">
+        </div>
+        <button class="generate" id="generate">Generate</button>
+        <div class="result" id="result">
+
+        </div>
+    </div>
+    <script>
+        let number = ''
+        document.getElementById('save-secret').addEventListener('click', () => {
+            number = document.getElementById('secret-number').value
+            document.getElementById('secret-block').style.display = 'none'
+        })
+        document.getElementById('generate').addEventListener('click', () => {
+          document.getElementById('result').textContent = number
+        })
+    </script>
+</body>
+</html>
